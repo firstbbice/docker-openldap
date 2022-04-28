@@ -4,7 +4,12 @@
 This docker image grabs the openldap source and builds slapd and
 installs it in /opt/slapd. 
 
-In order to use it you MUST supply at least two volumes.
+In order to use it you MUST supply at least the openldap volume.
+If you want your LDAP databases persistent, you must provide (at least)
+all three. You may provide even more volumes if you have multiple
+databases, depending on how you've configured  LDAP with the
+slapd.ldif file in the openldap volume.
+
 - **slapd.d**: Mounted to /opt/slapd/etc/slapd.d (OPTIONAL)
 - **openldap**: Mounted to /opt/slapd/etc/openldap (REQUIRED)
 - **openldap-data**: Mounted to /opt/slapd/var/openldap-data (OPTIONAL)
