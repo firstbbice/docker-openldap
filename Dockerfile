@@ -25,7 +25,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN apk update
 RUN apk --update --no-cache add \
-    curl cyrus-sasl argon2-libs libsodium libtool openssl
+    curl cyrus-sasl argon2-libs libsodium libtool openssl man bash
 
 # etc/openldap will be mounted from a volume
 RUN /bin/rm -rf /opt/slapd/etc/openldap
