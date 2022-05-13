@@ -1,0 +1,25 @@
+dn: dc=tcn,dc=com
+objectclass: dcObject
+objectclass: organization
+o: TCN
+dc: tcn
+
+dn: cn=Manager,dc=tcn,dc=com
+objectclass: organizationalRole
+cn: Manager
+
+dn: ou=People,dc=tcn,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+dn: uid=brent.bice,ou=People,dc=tcn,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Brent Bice
+sn: Bice
+uid: brent.bice
+userPassword: {SHA}Ix8Q34mLJQvMBaV7B4cyFfvCtqk=
+
