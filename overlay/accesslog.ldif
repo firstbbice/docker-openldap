@@ -1,0 +1,5 @@
+# accesslog
+dn: cn=accesslog
+objectClass: auditContainer
+cn: accesslog
+
