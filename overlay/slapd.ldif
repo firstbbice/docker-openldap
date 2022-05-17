@@ -1,131 +1,130 @@
-#
-# See slapd-config(5) for details on configuration options.
-# This file should NOT be world readable.
-#
 dn: cn=config
 objectClass: olcGlobal
-olcToolThreads: 2
-olcThreads: 4
 cn: config
-#
-#
-# Define global ACLs to disable default read access.
-#
 olcArgsFile: /opt/slapd/var/run/slapd.args
+olcAttributeOptions: lang-
+olcAuthzPolicy: none
+olcConcurrency: 0
+olcConfigDir: etc/slapd.d
+olcConfigFile: etc/openldap/slapd.conf
+olcConnMaxPending: 100
+olcConnMaxPendingAuth: 1000
+olcGentleHUP: FALSE
+olcIdleTimeout: 0
+olcIndexHash64: FALSE
+olcIndexIntLen: 4
+olcIndexSubstrAnyLen: 4
+olcIndexSubstrAnyStep: 2
+olcIndexSubstrIfMaxLen: 4
+olcIndexSubstrIfMinLen: 2
+olcListenerThreads: 1
+olcLocalSSF: 71
+olcLogFileOnly: FALSE
+olcLogLevel: 0
+olcMaxFilterDepth: 1000
 olcPidFile: /opt/slapd/var/run/slapd.pid
-#
-# Do not enable referrals until AFTER you have a working directory
-# service AND an understanding of referrals.
-#olcReferral:	ldap://root.openldap.org
-#
-# Sample security restrictions
-#	Require integrity protection (prevent hijacking)
-#	Require 112-bit (3DES or better) encryption for updates
-#	Require 64-bit encryption for simple bind
-#olcSecurity: ssf=1 update_ssf=112 simple_bind=64
+olcReadOnly: FALSE
+olcSaslAuxpropsDontUseCopyIgnore: FALSE
+olcSaslSecProps: noplain,noanonymous
+olcSockbufMaxIncoming: 262143
+olcSockbufMaxIncomingAuth: 16777215
+olcThreadQueues: 1
+olcThreads: 4
+olcTLSProtocolMin: 0.0
+olcTLSVerifyClient: never
+olcToolThreads: 2
+olcWriteTimeout: 0
 
-
-#
-# Load dynamic backend modules:
-#
-dn: cn=module,cn=config
+dn: cn=module{0},cn=config
 objectClass: olcModuleList
-cn: module
-olcModulepath:	/opt/slapd/libexec/openldap
-olcModuleload:	back_mdb.la
-olcModuleload:  back_monitor.la
-olcModuleload:  memberof.la
-olcModuleload:  refint.la
-olcModuleload:	argon2.la
-olcModuleload:	accesslog.la
-#olcModuleload:	back_ldap.la
-#olcModuleload:	back_passwd.la
+cn: module{0}
+olcModuleLoad: {0}back_mdb.la
+olcModuleLoad: {1}back_monitor.la
+olcModuleLoad: {2}refint.la
+olcModulePath: /opt/slapd/libexec/openldap
 
+# Schema configurations
 dn: cn=schema,cn=config
 objectClass: olcSchemaConfig
 cn: schema
+structuralObjectClass: olcSchemaConfig
 
 include: file:///opt/slapd/etc/openldap/schema/core.ldif
 include: file:///opt/slapd/etc/openldap/schema/cosine.ldif
 include: file:///opt/slapd/etc/openldap/schema/inetorgperson.ldif
 
-# Frontend settings
-#
-dn: olcDatabase=frontend,cn=config
+
+dn: olcDatabase={-1}frontend,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcFrontendConfig
-olcDatabase: frontend
+olcDatabase: {-1}frontend
+olcAccess: {0}to dn.base=""  by * read
+olcAccess: {1}to dn.base="cn=subschema"  by * read
+olcAccess: {2}to *  by self write  by users read  by anonymous auth
+olcAddContentAcl: FALSE
+olcLastBind: TRUE
+olcLastBindPrecision: 0
+olcLastMod: TRUE
+olcMaxDerefDepth: 0
 olcMonitoring: FALSE
-#
-# Sample global access control policy:
-#	Root DSE: allow anyone to read it
-#	Subschema (sub)entry DSE: allow anyone to read it
-#	Other DSEs:
-#		Allow self write access
-#		Allow authenticated users read access
-#		Allow anonymous users to authenticate
-#
-olcAccess: to dn.base="" by * read
-olcAccess: to dn.base="cn=Subschema" by * read
-olcAccess: to attrs=userPassword by self write by anonymous auth
-olcAccess: to * by self write by users read by anonymous auth
-#
-# if no access controls are present, the default policy
-# allows anyone and everyone to read anything but restricts
-# updates to rootdn.  (e.g., "access to * by * read")
-#
-# rootdn can always read and write EVERYTHING!
-#
-
-dn: olcDatabase=config,cn=config
-objectClass: olcDatabaseConfig
-olcDatabase: config
-olcMonitoring: FALSE
-#
-# This is set by initial.ldif
-#olcRootDN: cn=Manager,cn=config
+olcReadOnly: FALSE
+olcRootDN: cn=Manager,dc=tcn,dc=com
 #olcRootPW: secret
-#
-olcAccess: to * by dn.exact="cn=Manager,dc=tcn,dc=com" manage
+olcSchemaDN: cn=Subschema
+olcSyncUseSubentry: FALSE
 
+dn: olcDatabase={0}config,cn=config
+objectClass: olcDatabaseConfig
+olcDatabase: {0}config
+olcAccess: {0}to *  by * none
+olcAddContentAcl: TRUE
+olcLastBind: TRUE
+olcLastBindPrecision: 0
+olcLastMod: TRUE
+olcMaxDerefDepth: 15
+olcMonitoring: FALSE
+olcReadOnly: FALSE
+olcRootDN: cn=Manager,dc=tcn,dc=com
+#olcRootPW: secret
+olcSyncUseSubentry: FALSE
 
-#######################################################################
-# LMDB database definitions
-#######################################################################
-#
-dn: olcDatabase=mdb,cn=config
+dn: olcDatabase={1}mdb,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcMdbConfig
-olcDatabase: mdb
-olcMonitoring: TRUE
-olcDbMaxSize: 1073741824
-olcSuffix: dc=tcn,dc=com
-olcRootDN: cn=Manager,dc=tcn,dc=com
-# Cleartext passwords, especially for the rootdn, should
-# be avoided.  See slappasswd(8) and slapd-config(5) for details.
-# Use of strong authentication encouraged.
-olcRootPW: secret
-# The database directory MUST exist prior to running slapd AND 
-# should only be accessible by the slapd and slap tools.
-# Mode 700 recommended.
-olcDbDirectory:	/opt/slapd/var/openldap-data
-# Indices to maintain
-olcDbIndex: default eq
+olcDatabase: {1}mdb
+olcDbDirectory: /opt/slapd/var/openldap-data
+olcAddContentAcl: FALSE
 olcDbIndex: objectClass eq
-olcDbIndex: cn pres,eq,sub
-olcDbIndex: sn pres,eq,sub
-olcDbIndex: uid pres,eq,sub
-olcDbIndex: displayName eq,sub
-olcDbIndex: givenName eq,sub
-olcDbIndex: uidNumber eq
-olcDbIndex: gidNumber eq
-olcDbIndex: member eq
+olcDbMaxEntrySize: 0
+olcDbMaxReaders: 0
+olcDbMaxSize: 1073741824
+olcDbMode: 0600
+olcDbNoSync: FALSE
+olcDbRtxnSize: 10000
+olcDbSearchStack: 16
+olcLastBind: TRUE
+olcLastBindPrecision: 0
+olcLastMod: TRUE
+olcMaxDerefDepth: 15
+olcMonitoring: TRUE
+olcReadOnly: FALSE
+olcRootDN: cn=Manager,dc=tcn,dc=com
+#olcRootPW: secret
+olcSuffix: dc=tcn,dc=com
+olcSyncUseSubentry: FALSE
 
-dn: olcDatabase=monitor,cn=config
+dn: olcOverlay={0}accesslog,olcDatabase={1}mdb,cn=config
+objectClass: olcAccessLogConfig
+objectClass: olcOverlayConfig
+olcAccessLogDB: cn=accesslog
+olcOverlay: {0}accesslog
+olcAccessLogOps: all
+olcAccessLogPurge: 02:00 01:00
+
+dn: olcDatabase={2}monitor,cn=config
 objectClass: olcDatabaseConfig
-olcDatabase: monitor
-olcAccess: to dn.subtree="cn=monitor"  by dn.base="cn=manager,dc=tcn,dc=c
- om" write  by users read  by * none
+olcDatabase: {2}monitor
+olcAccess: {0}to * by dn.exact=cn=Manager,dc=tcn,dc=com read
 olcAddContentAcl: FALSE
 olcLastBind: TRUE
 olcLastBindPrecision: 0
@@ -133,18 +132,31 @@ olcLastMod: TRUE
 olcMaxDerefDepth: 15
 olcMonitoring: FALSE
 olcReadOnly: FALSE
-olcRootDN: cn=monitoring,cn=Monitor
-olcRootPW: monitoring
 olcSyncUseSubentry: FALSE
 
-#dn: olcDatabase=mdb,cn=config
-#objectClass: olcDatabaseConfig
-#objectClass: olcMdbConfig
-#olcDatabase: mdb
-#olcDbDirectory: /opt/slapd/var/openldap-accesslog
-#olcSuffix: cn=accesslog
-#olcRootDN: cn=admin,cn=accesslog
-#olcRootPW: auditor_password
-#olcDbIndex: default eq
-#olcDbIndex: entryCSN,objectClass,reqEnd,reqResult,reqStart
+dn: olcDatabase={3}mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: {3}mdb
+olcDbDirectory: /opt/slapd/var/openldap-accesslog
+olcAddContentAcl: FALSE
+olcDbIndex: reqStart eq
+olcDbMaxEntrySize: 0
+olcDbMaxReaders: 0
+olcDbMaxSize: 1073741824
+olcDbMode: 0600
+olcDbNoSync: FALSE
+olcDbRtxnSize: 10000
+olcDbSearchStack: 16
+olcLastBind: TRUE
+olcLastBindPrecision: 0
+olcLastMod: TRUE
+olcMaxDerefDepth: 15
+olcMonitoring: TRUE
+olcReadOnly: FALSE
+olcRootDN: cn=Manager,dc=tcn,dc=com
+#olcRootPW: secret
+olcSuffix: cn=accesslog
+olcAccess: {0}to *  by * none
+olcSyncUseSubentry: FALSE
 

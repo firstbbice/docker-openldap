@@ -21,18 +21,22 @@ RUN cd /tmp &&\
 FROM  alpine:3.11
 COPY --from=0 /opt/slapd /opt/slapd
 ENV LOGLEVEL="conns,filter,stats"
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN apk update
 RUN apk --update --no-cache add \
     curl cyrus-sasl argon2-libs libsodium libtool openssl man bash
 
 # etc/openldap will be mounted from a volume
-RUN /bin/rm -rf /opt/slapd/etc/openldap
+#RUN /bin/rm -rf /opt/slapd/etc/openldap
 
 ENV PATH=/opt/slapd/bin:/opt/slapd/sbin:$PATH
 ENV LD_LIBRARY_PATH=/opt/slapd/lib:/usr/lib
 ENV MANPATH=/opt/slapd/share/man:/usr/share/man
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY overlay/slapd.ldif /opt/slapd/etc/openldap/slapd.ldif
+COPY overlay/initial.ldif /opt/slapd/etc/openldap/initial.ldif
+COPY overlay/accesslog.ldif /opt/slapd/etc/openldap/accesslog.ldif
 
 # For debugging...
 #RUN touch /tmp/t.t

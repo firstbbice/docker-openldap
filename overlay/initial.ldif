@@ -5,8 +5,11 @@ o: TCN
 dc: tcn
 
 dn: cn=Manager,dc=tcn,dc=com
-objectclass: organizationalRole
+objectclass: top
+objectclass: person
 cn: Manager
+sn: Manager
+userPassword: {SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw==
 
 dn: ou=People,dc=tcn,dc=com
 objectClass: top
