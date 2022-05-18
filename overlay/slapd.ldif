@@ -58,9 +58,10 @@ dn: olcDatabase={-1}frontend,cn=config
 objectClass: olcDatabaseConfig
 objectClass: olcFrontendConfig
 olcDatabase: {-1}frontend
-olcAccess: {0}to dn.base=""  by * read
-olcAccess: {1}to dn.base="cn=subschema"  by * read
-olcAccess: {2}to *  by self write  by users read  by anonymous auth
+olcAccess: to dn.base="" by * read
+olcAccess: to dn.base="cn=Subschema" by * read
+olcAccess: to attrs=userPassword by self write by anonymous auth
+olcAccess: to * by self write by users read by anonymous auth
 olcAddContentAcl: FALSE
 olcLastBind: TRUE
 olcLastBindPrecision: 0
