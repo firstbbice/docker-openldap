@@ -1,22 +1,23 @@
-dn: dc=tcn,dc=com
+dn: BASE_DN
 objectclass: dcObject
 objectclass: organization
 o: TCN
 dc: tcn
 
-dn: cn=Manager,dc=tcn,dc=com
+dn: MGR_DN
 objectclass: top
 objectclass: person
 cn: Manager
 sn: Manager
-userPassword: {SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw==
+#userPassword: {SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw==
+userPassword: MGR_PASS
 
-dn: ou=People,dc=tcn,dc=com
+dn: ou=People,BASE_DN
 objectClass: top
 objectClass: organizationalUnit
 ou: People
 
-dn: uid=brent.bice,ou=People,dc=tcn,dc=com
+dn: uid=brent.bice,ou=People,BASE_DN
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson

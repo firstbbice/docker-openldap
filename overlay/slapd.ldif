@@ -69,8 +69,7 @@ olcLastMod: TRUE
 olcMaxDerefDepth: 0
 olcMonitoring: FALSE
 olcReadOnly: FALSE
-olcRootDN: cn=Manager,dc=tcn,dc=com
-#olcRootPW: secret
+olcRootDN: MGR_DN
 olcSchemaDN: cn=Subschema
 olcSyncUseSubentry: FALSE
 
@@ -85,8 +84,7 @@ olcLastMod: TRUE
 olcMaxDerefDepth: 15
 olcMonitoring: FALSE
 olcReadOnly: FALSE
-olcRootDN: cn=Manager,dc=tcn,dc=com
-#olcRootPW: secret
+olcRootDN: MGR_DN
 olcSyncUseSubentry: FALSE
 
 dn: olcDatabase={1}mdb,cn=config
@@ -109,9 +107,8 @@ olcLastMod: TRUE
 olcMaxDerefDepth: 15
 olcMonitoring: TRUE
 olcReadOnly: FALSE
-olcRootDN: cn=Manager,dc=tcn,dc=com
-#olcRootPW: secret
-olcSuffix: dc=tcn,dc=com
+olcRootDN: MGR_DN
+olcSuffix: BASE_DN
 olcSyncUseSubentry: FALSE
 
 dn: olcOverlay={0}accesslog,olcDatabase={1}mdb,cn=config
@@ -119,13 +116,13 @@ objectClass: olcAccessLogConfig
 objectClass: olcOverlayConfig
 olcAccessLogDB: cn=accesslog
 olcOverlay: {0}accesslog
-olcAccessLogOps: all
-olcAccessLogPurge: 02:00 01:00
+olcAccessLogOps: LOGOPS
+olcAccessLogPurge: LOGPURGE
 
 dn: olcDatabase={2}monitor,cn=config
 objectClass: olcDatabaseConfig
 olcDatabase: {2}monitor
-olcAccess: {0}to * by dn.exact=cn=Manager,dc=tcn,dc=com read
+olcAccess: {0}to * by dn.exact=MGR_DN read
 olcAddContentAcl: FALSE
 olcLastBind: TRUE
 olcLastBindPrecision: 0
@@ -155,8 +152,7 @@ olcLastMod: TRUE
 olcMaxDerefDepth: 15
 olcMonitoring: TRUE
 olcReadOnly: FALSE
-olcRootDN: cn=Manager,dc=tcn,dc=com
-#olcRootPW: secret
+olcRootDN: MGR_DN
 olcSuffix: cn=accesslog
 olcAccess: {0}to *  by * none
 olcSyncUseSubentry: FALSE

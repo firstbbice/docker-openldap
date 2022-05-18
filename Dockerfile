@@ -33,6 +33,13 @@ ENV PATH=/opt/slapd/bin:/opt/slapd/sbin:$PATH
 ENV LD_LIBRARY_PATH=/opt/slapd/lib:/usr/lib
 ENV MANPATH=/opt/slapd/share/man:/usr/share/man
 
+ENV BASE_DN	"dc=tcn,dc=com"
+ENV MGR_DN	"cn=Manager,dc=tcn,dc=com"
+#ENV MGR_PASS	"{SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw=="
+ENV MGR_PASS	"secret"
+ENV LOGOPS	"all"
+ENV LOGPURGE	"02:00 01:00"
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY overlay/slapd.ldif /opt/slapd/etc/openldap/slapd.ldif
 COPY overlay/initial.ldif /opt/slapd/etc/openldap/initial.ldif
