@@ -22,9 +22,11 @@ if [ ! -e /opt/slapd/var/openldap-data/data.mdb ]; then
 	sed -i "s/BASE_DN/$BASE_DN/g" /opt/slapd/etc/openldap/initial.ldif
 	sed -i "s/MGR_DN/$MGR_DN/g" /opt/slapd/etc/openldap/initial.ldif
 	sed -i "s/MGR_PASS/$MGR_PASS/g" /opt/slapd/etc/openldap/initial.ldif
+	sed -i "s/LDAP_DC/$LDAP_DC/g" /opt/slapd/etc/openldap/initial.ldif
+	sed -i "s/LDAP_ORG/$LDAP_ORG/g" /opt/slapd/etc/openldap/initial.ldif
 
 	echo "Running: slapadd -F etc/slapd.d -b "dc=tcn,dc=com" -l etc/openldap/initial.ldif"
-	slapadd -F etc/slapd.d -b "dc=tcn,dc=com" -l etc/openldap/initial.ldif 2>&1
+	slapadd -F etc/slapd.d -b "$BASE_DN" -l etc/openldap/initial.ldif 2>&1
 fi
 
 if [ ! -e /opt/slapd/var/openldap-accesslog/data.mdb ]; then

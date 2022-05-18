@@ -1,8 +1,8 @@
 dn: BASE_DN
 objectclass: dcObject
 objectclass: organization
-o: TCN
-dc: tcn
+o: LDAP_ORG
+dc: LDAP_DC
 
 dn: MGR_DN
 objectclass: top
