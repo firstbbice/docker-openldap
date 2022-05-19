@@ -15,7 +15,8 @@ Note that without these volumes mounted, your LDAP database will not
 be persistent. When the container is stopped and restarted, it will be
 with fresh config, main, and accesslog databases populated only with
 my default slapd.ldif and initial.ldif (and optionally, my DCSi
-schema and examples ldif files).
+schema and examples ldif files). See DCSi.md for info on my
+LDAP schema for turning LDAP into an asset tracking tool.
 
 The slapd.d volume will contain your config database. If empty, the image
 will build one from what it finds in /opt/slapd/etc/openldap/slapd.ldif.
