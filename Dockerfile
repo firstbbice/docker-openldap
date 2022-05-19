@@ -42,10 +42,16 @@ ENV MGR_PASS	"secret"
 ENV LOGOPS	"all"
 ENV LOGPURGE	"02:00 01:00"
 
+# Comment this out if you don't want my DCSi schema
+# and example ou=DCSi branch in the main database
+ENV ENABLE_DCSI	"true"
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY overlay/slapd.ldif /opt/slapd/etc/openldap/slapd.ldif
 COPY overlay/initial.ldif /opt/slapd/etc/openldap/initial.ldif
 COPY overlay/accesslog.ldif /opt/slapd/etc/openldap/accesslog.ldif
+COPY overlay/dcsi.ldif /opt/slapd/etc/openldap/dcsi.ldif
+COPY overlay/dcsi-examples.ldif /opt/slapd/etc/openldap/dcsi-examples.ldif
 
 # For debugging...
 #RUN touch /tmp/t.t

@@ -1,0 +1,150 @@
+dn: cn=dcsi,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: dcsi
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.1.17 NAME 'sgiVendorName' DESC 'Ven
+ dor Name' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.
+ 3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.1.30 NAME 'sgiPager' DESC 'Pager' E
+ QUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1
+ .4.1.1466.115.121.1.26{256} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.1.34 NAME 'sgiMobile' DESC 'Mobile 
+ Phone' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6
+ .1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.1 NAME 'licenseID' DESC 'Licens
+ e ID' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.
+ 1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.2 NAME 'licenseExpiration' DESC
+  'License Expiration' EQUALITY generalizedTimeMatch ORDERING generalizedTimeO
+ rderingMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.3 NAME 'licenseType' DESC 'Lice
+ nse Type' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.
+ 3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.4 NAME 'licenseNotes' DESC 'Lic
+ ense Notes' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 
+ 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.5 NAME 'dcsiServerName' DESC 'S
+ erver Name' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 
+ 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.7 NAME 'dcsiServerStatus' DESC 
+ 'Server Status' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYN
+ TAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.8 NAME 'dcsiSerialNumber' DESC 
+ 'Serial Number' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYN
+ TAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.9 NAME 'dcsiAssetTag' DESC 'As
+ set Tag' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3
+ .6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.10 NAME 'dcsiFootprintID' DESC
+  'Footprint ID' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYN
+ TAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.11 NAME 'dcsiOS' DESC 'OS and 
+ Version' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3
+ .6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.12 NAME 'dcsiLocation' DESC 'L
+ ocation' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3
+ .6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.13 NAME 'dcsiPlatform' DESC 'S
+ erver Platform' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.1
+ 21.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.14 NAME 'dcsiConsoleConnection
+ ' DESC 'Console Connection' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstri
+ ngsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.15 NAME 'dcsiServiceLevel' DES
+ C 'Service Level' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch S
+ YNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.16 NAME 'dcsiBackupServer' DES
+ C 'Backup Server' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstringsMatch S
+ YNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.17 NAME 'dcsiMonitoringServer'
+  DESC 'Monitoring Server' EQUALITY caseIgnoreMatch SUBSTR caseIgnoreSubstring
+ sMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.18 NAME 'dcsiHostedApplication
+ ' DESC 'Hosted Application' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.
+ 1.1466.115.121.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.19 NAME 'dcsiEmergencyContact'
+  DESC 'Emergency Contact' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.
+ 1466.115.121.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.20 NAME 'dcsiManagerContact' D
+ ESC 'Manager Contact' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466
+ .115.121.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.21 NAME 'dcsiDirectorContact' 
+ DESC 'Director Contact' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.14
+ 66.115.121.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.22 NAME 'dcsiAppOwner' DESC 'A
+ pplication Owner' EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115
+ .121.1.12 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.23 NAME 'dcsiMACAddress' DESC 
+ 'MAC Address' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.24 NAME 'dcsiPlatformName' DES
+ C 'Platform Name' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsM
+ atch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.25 NAME 'dcsiAppName' DESC 'Ap
+ plication Name' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMat
+ ch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.26 NAME 'dcsiNumCPUs' DESC 'Nu
+ mber of Physical CPUs' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.
+ 1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.27 NAME 'dcsiNumCPUCores' DESC
+  'Number of CPU Cores' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.
+ 1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.28 NAME 'dcsiClockRate' DESC '
+ Clock Rate' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch S
+ YNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.29 NAME 'dcsiCPUType' DESC 'CP
+ U Type' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTA
+ X 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.30 NAME 'dcsiHostNotes' DESC '
+ Host Notes' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch S
+ YNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.31 NAME 'dcsiAppNotes' DESC 'A
+ pplication Notes' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsM
+ atch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.32 NAME 'dcsiMemInMegs' DESC '
+ Amount of memory in megabytes' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.
+ 115.121.1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.33 NAME 'dcsiStorageInMegs' DE
+ SC 'Amount of local disk storage in megabytes' EQUALITY integerMatch SYNTAX 1
+ .3.6.1.4.1.1466.115.121.1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.34 NAME 'dcsiNumDrives' DESC '
+ Number of local drives' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121
+ .1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.35 NAME 'dcsiDriveSpeed' DESC 
+ 'Speed in RPM of local drives' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.
+ 115.121.1.27 )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.36 NAME 'dcsiDriveType' DESC '
+ Type of local drives (SCSI, IDE, etc)' EQUALITY caseIgnoreIA5Match SUBSTR cas
+ eIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.37 NAME 'dcsiMemSpeed' DESC 'C
+ lockrate of memory' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5Substring
+ sMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{12} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.38 NAME 'dcsiAuthType' DESC 'T
+ ype of Authentication' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5Substr
+ ingsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{20} )
+olcAttributeTypes: ( 1.3.6.1.4.1.9998.1.3.1.39 NAME 'dcsiSupportExpiration
+ ' DESC 'Support Expiration Date' EQUALITY generalizedTimeMatch ORDERING gener
+ alizedTimeOrderingMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.1 NAME 'licensedHost' DESC 'Lice
+ nsed Host' SUP top STRUCTURAL MUST host MAY ( licenseID $ licenseExpiration $
+  licenseType $ licenseNotes ) )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.2 NAME 'sgiLicense' DESC 'Licens
+ e' SUP top STRUCTURAL MUST licenseID MAY ( licenseExpiration $ licenseType $ 
+ licenseNotes $ sgiVendorName $ host ) )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.3 NAME 'dcsiServer' DESC 'DCSi S
+ erver' SUP top STRUCTURAL MUST dcsiServerName MAY ( dcsiServerStatus $ dcsiSe
+ rialNumber $ dcsiAssetTag $ dcsiFootprintID $ dcsiOS $ dcsiLocation $ dcsiPla
+ tform $ dcsiConsoleConnection $ dcsiServiceLevel $ dcsiBackupServer $ dcsiMon
+ itoringServer $ dcsiHostedApplication $ dcsiEmergencyContact $ dcsiManagerCon
+ tact $ dcsiDirectorContact $ dcsiMACAddress $ dcsiHostNotes $ dcsiMemInMegs $
+  dcsiStorageInMegs $ dcsiNumDrives $ dcsiDriveSpeed $ dcsiDriveType $ dcsiMem
+ Speed $ dcsiNumCPUCores $ dcsiClockRate $ dcsiAuthType $ dcsiSupportExpiratio
+ n ) )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.4 NAME 'dcsiPlatformType' DESC '
+ DCSi Platform Type' SUP top STRUCTURAL MUST dcsiPlatformName MAY ( sgiVendorN
+ ame $ dcsiNumCPUs $ dcsiNumCPUCores $ dcsiClockRate $ dcsiCPUType ) )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.5 NAME 'dcsiContact' DESC 'DCSi 
+ Contact' SUP organizationalRole STRUCTURAL MUST ( cn $ mail ) MAY ( sgiPager 
+ $ sgiMobile ) )
+olcObjectClasses: ( 1.3.6.1.4.1.9998.1.3.2.6 NAME 'dcsiApplicationType' DES
+ C 'DCSi Application Type' SUP top STRUCTURAL MUST dcsiAppName MAY ( dcsiAppOw
+ ner $ dcsiEmergencyContact $ dcsiAppNotes $ dcsiServiceLevel ) )

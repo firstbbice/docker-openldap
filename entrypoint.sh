@@ -16,6 +16,11 @@ if [ ! -e /opt/slapd/etc/slapd.d/cn=config.ldif ]; then
 
 	echo "Running: slapadd -n 0 -F etc/slapd.d -l etc/openldap/slapd.ldif"
 	slapadd -n 0 -F etc/slapd.d -l etc/openldap/slapd.ldif 2>&1
+
+	if [ ! -z $ENABLE_DCSI ]; then
+		echo "Loading DCSi schema"
+		slapadd -n 0 -F etc/slapd.d -l etc/openldap/dcsi.ldif 2>&1
+	fi
 fi
 
 if [ ! -e /opt/slapd/var/openldap-data/data.mdb ]; then
@@ -27,6 +32,12 @@ if [ ! -e /opt/slapd/var/openldap-data/data.mdb ]; then
 
 	echo "Running: slapadd -F etc/slapd.d -b "dc=tcn,dc=com" -l etc/openldap/initial.ldif"
 	slapadd -F etc/slapd.d -b "$BASE_DN" -l etc/openldap/initial.ldif 2>&1
+
+	if [ ! -z $ENABLE_DCSI ]; then
+		sed -i "s/BASE_DN/$BASE_DN/g" /opt/slapd/etc/openldap/dcsi-examples.ldif
+		echo "Loading dcsi-examples.ldif"
+		slapadd -F etc/slapd.d -b "$BASE_DN" -l etc/openldap/dcsi-examples.ldif 2>&1
+	fi
 fi
 
 if [ ! -e /opt/slapd/var/openldap-accesslog/data.mdb ]; then
