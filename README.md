@@ -1,8 +1,33 @@
 
-### A docker image for spinning up openldap's slapd
+### A docker image for spinning up openldap's slapd with DCSi schema for Asset Tracking
 
 This docker image grabs the openldap source and builds slapd and
 installs it in /opt/slapd. 
+
+You can customize the LDAP server with these environment variables:
+- ENV LDAP_DC	"bicetech"
+- ENV LDAP_TLD	"com"
+- ENV LDAP_ORG	"Bicetech"
+- ENV MGR_USER	"Manager"
+- ENV MGR_PASS	"secret"
+- ENV LOGOPS	"writes session"
+- ENV LOGPURGE	"02:00 01:00"
+- ENV ENABLE_DCSI	"true"
+
+The above defaults yields an LDAP server with a base DN of
+dc=bicetech,dc=com, a Manager DN of cn=Manager,dc=bicetech,dc=com
+with an o attribute (organization) of bicetech and password of
+"secret". There will also be an accesslog database with a base of
+cn=accesslog, a monitoring database wit a base DN of cn=monitor,
+and the config database will have a base DN of cn=config.
+
+The *LOGOPS* variable controls what will get logged
+to the accesslog database (see the slapo-accesslog man page for
+other options). The *LOGPURGE* variable controls how long the
+access logs are saved for and how often they're purged.
+
+Lastly, the *ENABLE-DCSI* variable controls whether or not to load
+the DCSI schema and sample data. (see DCSi.md for more details)
 
 If you want the data to be persistent, you must provide volumes for
 slapd.d, openldap-data, and openldap-accesslog:
@@ -53,16 +78,12 @@ There's a uid=brent.bice record under ou=People that I use for testing
 that you'll want to get rid of (or rename and change the password for your
 own testing).
 
-The config database can be found at the Base DN of cn=config. The RootDN
-is the cn=Manager account beneath whatever base you specified with the
-BASE_DN ENV var with the password "secret" or whatever you specified with
-the MGR_PASS ENV var.
-
+The config database can be found at the Base DN of cn=config.
 You can monitor stats with the Base DN of cn=monitor. Like the cn=config
-connection, you'll want to specify the Base DN, not just fetch it from
-the LDAP server.
+connection, you'll want to specify the Base DN in the ldap browser you
+use, not just fetch it from the LDAP server.
 
-The accesslog database should be visible to the normal cn=Manager login,
+The accesslog database should be visible to the normal Manager login,
 but it's base is cn=accesslog in case it's not (I use Apache
 DirectoryStudio and see it along side my main DB when I connect and
 auth as cn=Manager).
