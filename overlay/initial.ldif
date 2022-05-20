@@ -1,23 +1,23 @@
-dn: BASE_DN
+dn: dc=LDAP_DC,dc=LDAP_TLD
 objectclass: dcObject
 objectclass: organization
 o: LDAP_ORG
 dc: LDAP_DC
 
-dn: MGR_DN
+dn: cn=MGR_USER,dc=LDAP_DC,dc=LDAP_TLD
 objectclass: top
 objectclass: person
-cn: Manager
-sn: Manager
+cn: MGR_USER
+sn: MGR_USER
 #userPassword: {SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw==
 userPassword: MGR_PASS
 
-dn: ou=People,BASE_DN
+dn: ou=People,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: People
 
-dn: uid=brent.bice,ou=People,BASE_DN
+dn: uid=brent.bice,ou=People,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson

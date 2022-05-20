@@ -33,13 +33,14 @@ ENV PATH=/opt/slapd/bin:/opt/slapd/sbin:$PATH
 ENV LD_LIBRARY_PATH=/opt/slapd/lib:/usr/lib
 ENV MANPATH=/opt/slapd/share/man:/usr/share/man
 
-ENV BASE_DN	"dc=bicetech,dc=com"
-ENV LDAP_ORG	"Bicetech"
 ENV LDAP_DC	"bicetech"
-ENV MGR_DN	"cn=Manager,dc=bicetech,dc=com"
+ENV LDAP_TLD	"com"
+ENV LDAP_ORG	"Bicetech"
+ENV MGR_USER	"Manager"
 #ENV MGR_PASS	"{SSHA}RZQ38xm9B0KMEOKXiuQkwUQJHY6Jx0tf2c6BIw=="
 ENV MGR_PASS	"secret"
-ENV LOGOPS	"all"
+#ENV LOGOPS	"all"
+ENV LOGOPS	"writes session"
 ENV LOGPURGE	"02:00 01:00"
 
 # Comment this out if you don't want my DCSi schema

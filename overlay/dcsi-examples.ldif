@@ -1,31 +1,29 @@
-version: 1
-
-dn: ou=DCSi,dc=bicetech,dc=com
+dn: ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: DCSi
 
-dn: ou=Servers,ou=DCSi,dc=bicetech,dc=com
+dn: ou=Servers,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: Servers
 
-dn: ou=Contacts,ou=DCSi,dc=bicetech,dc=com
+dn: ou=Contacts,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: Contacts
 
-dn: ou=Platforms,ou=DCSi,dc=bicetech,dc=com
+dn: ou=Platforms,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: Platforms
 
-dn: ou=Applications,ou=DCSi,dc=bicetech,dc=com
+dn: ou=Applications,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: top
 objectClass: organizationalUnit
 ou: Applications
 
-dn: dcsiServerName=p-dns1-b50,ou=Servers,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiServerName=p-dns1-b50,ou=Servers,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiServer
 objectClass: top
 dcsiServerName: p-dns1-b50
@@ -35,24 +33,23 @@ dcsiBackupServer: p-backup-dc21
 dcsiConsoleConnection: cyclades1:2120
 dcsiDriveType: SAN-Fabric
 dcsiFootprintID: B12
-dcsiHostedApplication: dcsiAppName=bind,ou=Applications,ou=DCSi,dc=bicetech,
- dc=com
+dcsiHostedApplication: dcsiAppName=bind,ou=Applications,ou=DCSi,dc=LDAP_DC,
+ dc=LDAP_TLD
 dcsiHostNotes: Build Notes: https://corp.sgi.com/DCO/Build-Docs/DNS-servers.
  html
 dcsiHostNotes: Troubleshooting Docs: https://corp.sgi.com/DCO/Misc/gennamed-
  sucks.html
 dcsiLocation: B50, Room 42
-dcsiManagerContact: uid=brent.bice,ou=People,dc=bicetech,dc=com
+dcsiManagerContact: uid=brent.bice,ou=People,dc=LDAP_DC,dc=LDAP_TLD
 dcsiMonitoringServer: nagios
 dcsiMonitoringServer: cacti
 dcsiOS: Ubuntu 12.04
-dcsiPlatform: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=bicetec
- h,dc=com
+dcsiPlatform: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 dcsiSerialNumber: ABCD-123-XYZ
 dcsiServerStatus: PRODUCTION
 dcsiServiceLevel: 24x7
 
-dn: dcsiServerName=pv-web1-b50,ou=Servers,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiServerName=pv-web1-b50,ou=Servers,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiServer
 objectClass: top
 dcsiServerName: pv-web1-b50
@@ -60,23 +57,21 @@ dcsiAssetTag: ABC123
 dcsiAuthType: LDAP
 dcsiBackupServer: p-backup-dc21
 dcsiConsoleConnection: vmware
-dcsiHostedApplication: dcsiAppName=Apache,ou=Applications,ou=DCSi,dc=bicetec
- h,dc=com
+dcsiHostedApplication: dcsiAppName=Apache,ou=Applications,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 dcsiHostNotes: Build Notes: https://corp.sgi.com/DCO/Build-Docs/Web-servers.
  html
 dcsiHostNotes: Troubleshooting Docs: https://corp.sgi.com/DCO/Misc/clustermg
  mt-sucks.html
 dcsiLocation: pv-b50
-dcsiManagerContact: uid=brent.bice,ou=People,dc=bicetech,dc=com
+dcsiManagerContact: uid=brent.bice,ou=People,dc=LDAP_DC,dc=LDAP_TLD
 dcsiMonitoringServer: nagios
 dcsiMonitoringServer: cacti
 dcsiOS: RedHat Enterprise Linux 8.0
-dcsiPlatform: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=bicetech,dc=co
- m
+dcsiPlatform: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 dcsiServerStatus: PRODUCTION
 dcsiServiceLevel: 24x7
 
-dn: cn=web-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
+dn: cn=web-admins,ou=Contacts,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiContact
 objectClass: organizationalRole
 objectClass: top
@@ -84,7 +79,7 @@ cn: web-admins
 mail: web-admins@listserver.nowhere.com
 sgiMobile: 408-555-1211 webadmin on-call cellphone
 
-dn: cn=linux-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
+dn: cn=linux-admins,ou=Contacts,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiContact
 objectClass: organizationalRole
 objectClass: top
@@ -92,13 +87,13 @@ cn: linux-admins
 mail: linux-admins@listserver.nowhere.com
 sgiMobile: 408-555-1211 linux on-call cellphone
 
-dn: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiPlatformType
 objectClass: top
 dcsiPlatformName: vmware
 sgiVendorName: vmware
 
-dn: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiPlatformType
 objectClass: top
 dcsiPlatformName: SGI Altix 250
@@ -108,17 +103,17 @@ dcsiNumCPUCores: 8
 dcsiNumCPUs: 4
 sgiVendorName: SGI
 
-dn: dcsiAppName=bind,ou=Applications,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiAppName=bind,ou=Applications,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiApplicationType
 objectClass: top
 dcsiAppName: bind
 
-dn: dcsiAppName=Apache,ou=Applications,ou=DCSi,dc=bicetech,dc=com
+dn: dcsiAppName=Apache,ou=Applications,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 objectClass: dcsiApplicationType
 objectClass: top
 dcsiAppName: Apache
 dcsiAppNotes: Build Notes: https://corp.sgi.com/DCO/how-to-build-apache-from
  -source.html
-dcsiAppOwner: cn=web-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
+dcsiAppOwner: cn=web-admins,ou=Contacts,ou=DCSi,dc=LDAP_DC,dc=LDAP_TLD
 dcsiServiceLevel: 24x7
 
