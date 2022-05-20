@@ -26,7 +26,7 @@ where servers were using a myriad of spreadsheets. (yuck)
 As a result, once the dust settled I made an LDAP schema to store all of the
 same sorts of data (plus lots more) in LDAP. We could all use Apache
 DirectoryStudio or other LDAP browser/editor tools to safely make changes
-and I wrote some simple scripts using ssh and snmp to even automatically
+and I even wrote some simple scripts using ssh and snmp to automatically
 update the database with things like Memory, CPU types, CPU speeds,
 number of cores, OS versions, etc. 
 
@@ -55,12 +55,13 @@ finding if you've got one (and where it is) is just an ldap search away.
 
 ### Example data
 
-I loaded some fake example data under ou=DCSi. Take a peek. Many of the
+I've loaded some fake example data under ou=DCSi. Take a peek. Many of the
 attributes are just free-form text so use 'em however you want. Or heck,
 use this as a springboard to make your own schema to track other stuff.
 I made a prototype at one
 point for keeping track of backup tape volumes (is Volume 12345
-stored off-site? Which location? On-site? In which tape safe?)
+stored off-site? Which location? On-site? In which tape safe? Which
+shelf?)
 
 ### Why bring it back?
 
@@ -78,14 +79,14 @@ I keep thinking it would be a fun project, but to do that I need to revive
 DCSi first, so here it is. It's incredibly useful on it's own provided
 you put useful data in it. While deciding what data to put into it, think
 to yourself, "What data might a new, junior sysadmin might need when
-woken up at 3 AM because something fell over.
-Think, location,
+woken up at 3 AM because something fell over".
+Think, location, links to
 build/troubleshooting notes, support-contract info, contacts for those
 support contracts (and whatever serial numbers or other data you'll need),
-how to get out-of-band access via iLO or some KVM server, etc. Anything
+how to get out-of-band access via iLO or some KVM server, etc, anything
 that might be useful to know. It might just mean the new junior admin will
 be able fix the problem instead of having to escalate and wake you up to
-ask questions!
+ask help fix things!
 
 ### That's a lot of sensitive info!
 
