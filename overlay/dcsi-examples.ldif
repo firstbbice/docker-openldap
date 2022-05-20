@@ -1,31 +1,33 @@
-dn: ou=DCSi,BASE_DN
-objectClass: organizationalUnit
+version: 1
+
+dn: ou=DCSi,dc=bicetech,dc=com
 objectClass: top
+objectClass: organizationalUnit
 ou: DCSi
 
-dn: ou=Servers,ou=DCSi,BASE_DN
-objectClass: organizationalUnit
+dn: ou=Servers,ou=DCSi,dc=bicetech,dc=com
 objectClass: top
+objectClass: organizationalUnit
 ou: Servers
 
-dn: ou=Contacts,ou=DCSi,BASE_DN
-objectClass: organizationalUnit
+dn: ou=Contacts,ou=DCSi,dc=bicetech,dc=com
 objectClass: top
+objectClass: organizationalUnit
 ou: Contacts
 
-dn: ou=Platforms,ou=DCSi,BASE_DN
-objectClass: organizationalUnit
+dn: ou=Platforms,ou=DCSi,dc=bicetech,dc=com
 objectClass: top
+objectClass: organizationalUnit
 ou: Platforms
 
-dn: ou=Applications,ou=DCSi,BASE_DN
-objectClass: organizationalUnit
+dn: ou=Applications,ou=DCSi,dc=bicetech,dc=com
 objectClass: top
+objectClass: organizationalUnit
 ou: Applications
 
-dn: dcsiServerName=p-dns1-b50,ou=Servers,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiServerName=p-dns1-b50,ou=Servers,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiServer
+objectClass: top
 dcsiServerName: p-dns1-b50
 dcsiAssetTag: ABC123
 dcsiAuthType: LDAP
@@ -40,18 +42,19 @@ dcsiHostNotes: Build Notes: https://corp.sgi.com/DCO/Build-Docs/DNS-servers.
 dcsiHostNotes: Troubleshooting Docs: https://corp.sgi.com/DCO/Misc/gennamed-
  sucks.html
 dcsiLocation: B50, Room 42
-dcsiManagerContact: uid=brent.bice,ou=People,BASE_DN
+dcsiManagerContact: uid=brent.bice,ou=People,dc=bicetech,dc=com
 dcsiMonitoringServer: nagios
 dcsiMonitoringServer: cacti
+dcsiOS: Ubuntu 12.04
 dcsiPlatform: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=bicetec
  h,dc=com
 dcsiSerialNumber: ABCD-123-XYZ
 dcsiServerStatus: PRODUCTION
 dcsiServiceLevel: 24x7
 
-dn: dcsiServerName=pv-web1-b50,ou=Servers,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiServerName=pv-web1-b50,ou=Servers,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiServer
+objectClass: top
 dcsiServerName: pv-web1-b50
 dcsiAssetTag: ABC123
 dcsiAuthType: LDAP
@@ -64,39 +67,40 @@ dcsiHostNotes: Build Notes: https://corp.sgi.com/DCO/Build-Docs/Web-servers.
 dcsiHostNotes: Troubleshooting Docs: https://corp.sgi.com/DCO/Misc/clustermg
  mt-sucks.html
 dcsiLocation: pv-b50
-dcsiManagerContact: uid=brent.bice,ou=People,BASE_DN
+dcsiManagerContact: uid=brent.bice,ou=People,dc=bicetech,dc=com
 dcsiMonitoringServer: nagios
 dcsiMonitoringServer: cacti
+dcsiOS: RedHat Enterprise Linux 8.0
 dcsiPlatform: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=bicetech,dc=co
  m
 dcsiServerStatus: PRODUCTION
 dcsiServiceLevel: 24x7
 
-dn: cn=web-admins,ou=Contacts,ou=DCSi,BASE_DN
-objectClass: top
-objectClass: organizationalRole
+dn: cn=web-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiContact
+objectClass: organizationalRole
+objectClass: top
 cn: web-admins
 mail: web-admins@listserver.nowhere.com
 sgiMobile: 408-555-1211 webadmin on-call cellphone
 
-dn: cn=linux-admins,ou=Contacts,ou=DCSi,BASE_DN
-objectClass: top
-objectClass: organizationalRole
+dn: cn=linux-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiContact
+objectClass: organizationalRole
+objectClass: top
 cn: linux-admins
 mail: linux-admins@listserver.nowhere.com
 sgiMobile: 408-555-1211 linux on-call cellphone
 
-dn: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiPlatformName=vmware,ou=Platforms,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiPlatformType
+objectClass: top
 dcsiPlatformName: vmware
 sgiVendorName: vmware
 
-dn: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiPlatformName=SGI Altix 250,ou=Platforms,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiPlatformType
+objectClass: top
 dcsiPlatformName: SGI Altix 250
 dcsiClockRate: 1.5 ghz
 dcsiCPUType: x86_64
@@ -104,17 +108,17 @@ dcsiNumCPUCores: 8
 dcsiNumCPUs: 4
 sgiVendorName: SGI
 
-dn: dcsiAppName=bind,ou=Applications,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiAppName=bind,ou=Applications,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiApplicationType
+objectClass: top
 dcsiAppName: bind
 
-dn: dcsiAppName=Apache,ou=Applications,ou=DCSi,BASE_DN
-objectClass: top
+dn: dcsiAppName=Apache,ou=Applications,ou=DCSi,dc=bicetech,dc=com
 objectClass: dcsiApplicationType
+objectClass: top
 dcsiAppName: Apache
 dcsiAppNotes: Build Notes: https://corp.sgi.com/DCO/how-to-build-apache-from
  -source.html
-dcsiAppOwner: cn=web-admins,ou=Contacts,ou=DCSi,BASE_DN
+dcsiAppOwner: cn=web-admins,ou=Contacts,ou=DCSi,dc=bicetech,dc=com
 dcsiServiceLevel: 24x7
 
