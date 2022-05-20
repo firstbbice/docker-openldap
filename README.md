@@ -18,7 +18,7 @@ The above defaults yields an LDAP server with a base DN of
 dc=bicetech,dc=com, a Manager DN of cn=Manager,dc=bicetech,dc=com
 with an o attribute (organization) of bicetech and password of
 "secret". There will also be an accesslog database with a base of
-cn=accesslog, a monitoring database wit a base DN of cn=monitor,
+cn=accesslog, a monitoring database with a base DN of cn=monitor,
 and the config database will have a base DN of cn=config.
 
 The *LOGOPS* variable controls what will get logged
@@ -62,7 +62,7 @@ This command will start slapd and have it listen on port 8389 on your system,
 but the databases will **not** be persisted. They'll be built from scratch
 and thrown away when the docker image is restarted.
 
-**docker run -d -v `pwd`/volumes/slapd.d:/opt/slapd/etc/slapd.d -v `pwd`/volumes/openldap-data:/opt/slapd/var/openldap-data -v `pwd`/volumes/openldap-accesslog:/opt/slapd/var/openldap-accesslog -p 8389:389 --net=bridge --name=openldap brentbice/openldap**
+**docker run -d -v ``pwd``/volumes/slapd.d:/opt/slapd/etc/slapd.d -v `pwd`/volumes/openldap-data:/opt/slapd/var/openldap-data -v `pwd`/volumes/openldap-accesslog:/opt/slapd/var/openldap-accesslog -p 8389:389 --net=bridge --name=openldap brentbice/openldap**
 
 This command will start slapd and have it listen on port 8389 on your system.
 All databases will be persisted in directories in the volumes directory.
