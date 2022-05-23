@@ -54,6 +54,10 @@ The openldap-accesslog volume is where the accesslog LDAP database will
 be stored. If it's empty, the docker image will build a fresh database
 with slapadd using /opt/slapd/etc/openldap/accesslog.ldif.
 
+If you don't like my default setup and initial data you can mount a volume
+on top of /opt/slapd/etc/openldap and provide your own slapd.ldif, initial.ldif,
+and accesslog.ldif files.
+
 ### Example command to startup image
 
 **docker run -d -p 8389:389 --net=bridge --name=openldap brentbice/openldap**
