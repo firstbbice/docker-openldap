@@ -93,7 +93,16 @@ objectClass: olcMdbConfig
 olcDatabase: {1}mdb
 olcDbDirectory: /opt/slapd/var/openldap-data
 olcAddContentAcl: FALSE
+olcDbIndex: default eq
 olcDbIndex: objectClass eq
+olcDbIndex: cn pres,eq,sub
+olcDbIndex: sn pres,eq,sub
+olcDbIndex: uid pres,eq,sub
+olcDbIndex: displayName eq,sub
+olcDbIndex: givenName eq,sub
+olcDbIndex: uidNumber eq
+olcDbIndex: gidNumber eq
+olcDbIndex: member eq
 olcDbMaxEntrySize: 0
 olcDbMaxReaders: 0
 olcDbMaxSize: 1073741824
