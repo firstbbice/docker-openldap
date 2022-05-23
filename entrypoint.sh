@@ -31,7 +31,7 @@ if [ ! -e /opt/slapd/var/openldap-data/data.mdb ]; then
 	sed -i "s/MGR_PASS/$MGR_PASS/g" /opt/slapd/etc/openldap/initial.ldif
 	sed -i "s/LDAP_ORG/$LDAP_ORG/g" /opt/slapd/etc/openldap/initial.ldif
 
-	echo "Running: slapadd -F etc/slapd.d -b "dc=tcn,dc=com" -l etc/openldap/initial.ldif"
+	echo "Running: slapadd -F etc/slapd.d -b "dc=$LDAP_DC,dc=$LDAP_TLD" -l etc/openldap/initial.ldif"
 	slapadd -F etc/slapd.d -b "dc=$LDAP_DC,dc=$LDAP_TLD" -l etc/openldap/initial.ldif 2>&1
 
 	if [ $ENABLE_DCSI = "true" ]; then
@@ -43,7 +43,7 @@ if [ ! -e /opt/slapd/var/openldap-data/data.mdb ]; then
 fi
 
 if [ ! -e /opt/slapd/var/openldap-accesslog/data.mdb ]; then
-	echo "Running: slapadd -F etc/slapd.d -b "dc=tcn,dc=com" -l etc/openldap/accesslog.ldif"
+	echo "Running: slapadd -F etc/slapd.d -b "cn=accesslog" -l etc/openldap/accesslog.ldif"
 	slapadd -F etc/slapd.d -b "cn=accesslog" -l etc/openldap/accesslog.ldif 2>&1
 fi
 
