@@ -24,7 +24,8 @@ and the config database will have a base DN of cn=config.
 The *LOGOPS* variable controls what will get logged
 to the accesslog database (see the slapo-accesslog man page for
 other options). The *LOGPURGE* variable controls how long the
-access logs are saved for and how often they're purged.
+access logs are saved for and how often they're purged. See the
+slapo-accesslog for more information.
 
 Lastly, the *ENABLE-DCSI* variable controls whether or not to load
 the DCSI schema and sample data. (see DCSi.md for more details)
