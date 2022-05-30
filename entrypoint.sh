@@ -20,7 +20,8 @@ if [ ! -e /opt/slapd/etc/slapd.d/cn=config.ldif ]; then
 
 	if [ $ENABLE_DCSI = "true" ]; then
 		echo "Loading DCSi schema"
-		slapadd -n 0 -F etc/slapd.d -l etc/openldap/dcsi.ldif 2>&1
+		slapadd -n 0 -F etc/slapd.d -l etc/openldap/schema/dcsi.ldif 2>&1
+		slapmodify -n 0 -F etc/slapd.d -l etc/openldap/dcsi-indexes.ldif 2>&1
 	fi
 fi
 

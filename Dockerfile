@@ -51,8 +51,9 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY overlay/slapd.ldif /opt/slapd/etc/openldap/slapd.ldif
 COPY overlay/initial.ldif /opt/slapd/etc/openldap/initial.ldif
 COPY overlay/accesslog.ldif /opt/slapd/etc/openldap/accesslog.ldif
-COPY overlay/dcsi.ldif /opt/slapd/etc/openldap/dcsi.ldif
+COPY overlay/dcsi.ldif /opt/slapd/etc/openldap/schema/dcsi.ldif
 COPY overlay/dcsi-examples.ldif /opt/slapd/etc/openldap/dcsi-examples.ldif
+COPY overlay/dcsi-indexes.ldif /opt/slapd/etc/openldap/dcsi-indexes.ldif
 
 # For debugging...
 #RUN touch /tmp/t.t
